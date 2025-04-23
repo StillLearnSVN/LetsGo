@@ -1,0 +1,157 @@
+# Golang Basics - Beginner Notes
+
+## 1. Sequential Execution
+All Go programs execute line by line by default.
+
+```go
+package main
+import "fmt"
+
+func main() {
+    fmt.Println("Step 1")
+    fmt.Println("Step 2")
+}
+```
+
+---
+
+## 2. If-Else Statements
+Decision making in Go.
+
+```go
+a := 5
+b := 10
+
+if a == b {
+    fmt.Println("Equal")
+} else {
+    fmt.Println("Not equal")
+}
+```
+
+Short statement:
+```go
+if err := doSomething(); err != nil {
+    return err
+}
+```
+
+---
+
+## 3. Loops in Go
+
+### Standard for loop:
+```go
+for i := 0; i < 5; i++ {
+    fmt.Println(i)
+}
+```
+
+### Range loop:
+```go
+nums := []int{1, 2, 3}
+for i, v := range nums {
+    fmt.Println(i, v)
+}
+```
+
+### Infinite loop:
+```go
+for {
+    fmt.Println("Running...")
+    break
+}
+```
+
+---
+
+## 4. Loop Labels
+Control nested loops.
+
+```go
+outer:
+for i := 0; i < 3; i++ {
+    for j := 0; j < 3; j++ {
+        if j == 1 {
+            continue outer
+        }
+        fmt.Println(i, j)
+    }
+}
+```
+
+---
+
+## 5. Switch Statement
+Replace chained if-else blocks.
+
+```go
+score := 75
+
+switch {
+case score < 50:
+    fmt.Println("Fail")
+case score < 80:
+    fmt.Println("Pass")
+default:
+    fmt.Println("Excellent")
+}
+```
+
+---
+
+## 6. Packages and Imports
+
+```go
+package main
+import "fmt"
+
+func main() {
+    fmt.Println("Hello, World!")
+}
+```
+
+---
+
+## 7. Variable Declarations
+
+### Standard:
+```go
+var a int = 10
+```
+
+### Short (inside functions only):
+```go
+a := 10
+```
+
+At least one variable must be new:
+```go
+x, err := doSomething()
+```
+
+---
+
+## 8. Variable Shadowing
+Be careful with `:=` redeclaring variables.
+
+```go
+func main() {
+    err := fmt.Println("Hello")
+    if _, err := fmt.Println("World"); err != nil {
+        fmt.Println(err)
+    }
+}
+```
+
+---
+
+## 9. Operators
+
+- Arithmetic: `+ - * / %`
+- Comparison: `== != < >`
+- Logical: `&& || !`
+- Bitwise: `& | ^ << >>`
+- Assignment: `= += -= *=`
+
+---
